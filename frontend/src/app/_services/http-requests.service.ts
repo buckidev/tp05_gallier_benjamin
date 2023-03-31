@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Api_httpInterceptor } from '../Class/Api_httpInterceptor';
 
 @Injectable({
   providedIn: 'root',
@@ -20,14 +19,12 @@ export class HttpRequestsService {
   }
 
   public GetUsers(): Observable<any> {
-    //Api_httpInterceptor.jwtToken="eyJhbGciOiJIUzI1NiJ9.e30.ECFeffV1yM9iD8t7d3YA_xytwbz8QS-DoG0-KtKnYQo";
     return this.httpClient.get<any>(
       'https://cnam-tp05-gallier-benjamin.onrender.com/api/user'
     );
   }
 
   public GetCatalogue(): Observable<any> {
-    //Api_httpInterceptor.jwtToken="eyJhbGciOiJIUzI1NiJ9.e30.ECFeffV1yM9iD8t7d3YA_xytwbz8QS-DoG0-KtKnYQo";
     return this.httpClient.get<any>(
       `https://cnam-tp05-gallier-benjamin.onrender.com/api/catalogue`
     );

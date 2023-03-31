@@ -1,0 +1,13 @@
+<div class="form-group"
+    style="display: flex; flex-direction: column; align-items: center">
+  <h3 style="margin-bottom: 25px; font-weight: 600">Mon compte</h3>
+  <button class="btn btn-primary" (click)="users()">GetUsers from API</button>
+  <div style="margin-top: 50px;">
+  <div *ngIf="user.nom">
+    <p><span style="font-weight: bold">Prénom:</span> {{ user.prenom }}</p>
+    <p><span style="font-weight: bold">Nom:</span> {{ user.nom }}</p>
+      <p><span style="font-weight: bold">Adresse:</span> {{ user.adresse }}</p>
+    <p><span style="font-weight: bold">Téléphone:</span> {{ user.tel }}</p>
+  </div>
+  
+</div>

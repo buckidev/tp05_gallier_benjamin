@@ -1,0 +1,13 @@
+<div
+    class="form-group"
+    style="display: flex; flex-direction: column; align-items: center"
+  >
+    <h3 style="margin-bottom: 25px; font-weight: 600; text-align: center">
+      Connexion
+    </h3>
+    <button class="btn btn-primary" (click)="login()">Login from API</button>
+    <div style="display: flex; margin-top: 50px;" *ngIf="userLog.nom && userLog.prenom"  > 
+      Bonjour, {{userLog.prenom}} {{userLog.nom}}. Vous êtes connecté
+    </div>
+    
+</div>

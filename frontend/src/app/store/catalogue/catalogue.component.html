@@ -1,0 +1,38 @@
+<div
+    class="form-group"
+    style="display: flex; flex-direction: column; align-items: center"
+  >
+  <h3 style="margin-bottom: 25px; font-weight: 600; text-align: center">
+    Catalogue des produits
+  </h3>
+  <button class="btn btn-primary" (click)="catalogue()">Load catalogue from API</button>
+  <div *ngIf="produits.length>0"><ul
+    class="list-group scrollbar-primary"
+    style="
+      margin-top: 3%;
+      overflow-y: auto;
+      max-height: 700px;
+      width: 100%;
+      overflow: auto;
+    "
+  >
+    <li class="list-group-item" *ngFor="let produit of produits">
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: start;
+        "
+      >
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+          <p style="margin-right: 20px">{{ produit.name }}</p>
+          <p style="font-weight: bold; font-size: large">{{ produit.price }}€</p>
+        </div>
+        
+        <p style="margin-right: 20px">{{ produit.description }}</p>
+      </div>
+    </li>
+  </ul></div>
+  
+</div>
