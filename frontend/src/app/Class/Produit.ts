@@ -1,11 +1,11 @@
 export class Produit {
-    public prix:string="";
-    public ref:string="";
-    public titre:string="";
+  public name: string = '';
+  public price: string = '';
+  public description: string = '';
 
-    constructor(prix:string,ref:string,titre:string){
-        this.prix=prix;
-        this.ref=ref;
-        this.titre=titre;
-    }
+  constructor(name: string, price: string, description: string) {
+    this.name = name;
+    this.price = price;
+    this.description = description;
+  }
 }

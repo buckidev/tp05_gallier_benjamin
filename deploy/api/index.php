@@ -99,14 +99,65 @@ $app->options('/api/catalogue', function (Request $request, Response $response, 
 
 $app->get('/api/catalogue/{filtre}', function (Request $request, Response $response, $args) {
     $filtre = $args['filtre'];
-    $flux = '[{"titre":"linux","ref":"001","prix":"20"},{"titre":"java","ref":"002","prix":"21"},{"titre":"windows","ref":"003","prix":"22"},{"titre":"angular","ref":"004","prix":"23"},{"titre":"unix","ref":"005","prix":"25"},{"titre":"javascript","ref":"006","prix":"19"},{"titre":"html","ref":"007","prix":"15"},{"titre":"css","ref":"008","prix":"10"}]';
+    $flux = '[
+  {
+    "name": "Pommes",
+    "price": 2.49,
+    "description": "Des pommes fraîches et juteuses, parfaites pour une collation saine ou pour la préparation de délicieuses tartes et compotes."
+  },
+  {
+    "name": "Oranges",
+    "price": 1.99,
+    "description": "Des oranges savoureuses et riches en vitamines, idéales pour préparer des jus frais ou pour une collation saine."
+  },
+  {
+    "name": "Bananes",
+    "price": 1.79,
+    "description": "Des bananes mûres et sucrées, parfaites pour une collation rapide ou pour ajouter une touche sucrée à vos smoothies et à vos céréales."
+  },
+  {
+    "name": "Salade",
+    "price": 3.99,
+    "description": "Un mélange de salades fraîches et croquantes, idéal pour préparer des salades saines et délicieuses pour vos repas."
+  },
+  {
+    "name": "Tomates",
+    "price": 2.49,
+    "description": "Des tomates rouges et juteuses, parfaites pour ajouter de la saveur et de la texture à vos plats préférés, des sandwichs aux pâtes."
+  },
+  {
+    "name": "Viande",
+    "price": 15.99,
+    "description": "De la viande fraîche et de qualité, provenant des meilleurs producteurs locaux, pour des plats copieux et savoureux."
+  },
+  {
+    "name": "Lait",
+    "price": 8.49,
+    "description": "Du lait frais et crémeux, parfait pour le petit déjeuner ou pour ajouter une touche de douceur à vos recettes préférées."
+  },
+  {
+    "name": "Oeuf",
+    "price": 5.49,
+    "description": "Des oeufs frais et riches en protéines, idéaux pour les petits déjeuners, les omelettes ou pour ajouter de la texture à vos plats préférés."
+  },
+  {
+    "name": "Poisson",
+    "price": 14.99,
+    "description": "Du poisson frais et savoureux, provenant de sources durables et pêché localement, pour des repas sains et délicieux."
+  },
+  {
+    "name": "Céréales",
+    "price": 3.99,
+    "description": "Des céréales savoureuses et croquantes, parfaites pour un petit déjeuner rapide ou pour ajouter de la texture à vos yaourts et smoothies."
+  }
+]';
    
     if ($filtre) {
       $data = json_decode($flux, true); 
     	
         $res = array_filter($data, function($obj) use ($filtre)
         { 
-            return strpos($obj["titre"], $filtre) !== false;
+            return strpos($obj["name"], $filtre) !== false;
         });
         $response->getBody()->write(json_encode(array_values($res)));
     } else {
@@ -116,7 +167,58 @@ $app->get('/api/catalogue/{filtre}', function (Request $request, Response $respo
 });
 
 $app->get('/api/catalogue', function (Request $request, Response $response, $args) {
-    $flux = '[{"titre":"linux","ref":"001","prix":"20"},{"titre":"java","ref":"002","prix":"21"},{"titre":"windows","ref":"003","prix":"22"},{"titre":"angular","ref":"004","prix":"23"},{"titre":"unix","ref":"005","prix":"25"},{"titre":"javascript","ref":"006","prix":"19"},{"titre":"html","ref":"007","prix":"15"},{"titre":"css","ref":"008","prix":"10"}]'; 
+    $flux = '[
+  {
+    "name": "Pommes",
+    "price": 2.49,
+    "description": "Des pommes fraîches et juteuses, parfaites pour une collation saine ou pour la préparation de délicieuses tartes et compotes."
+  },
+  {
+    "name": "Oranges",
+    "price": 1.99,
+    "description": "Des oranges savoureuses et riches en vitamines, idéales pour préparer des jus frais ou pour une collation saine."
+  },
+  {
+    "name": "Bananes",
+    "price": 1.79,
+    "description": "Des bananes mûres et sucrées, parfaites pour une collation rapide ou pour ajouter une touche sucrée à vos smoothies et à vos céréales."
+  },
+  {
+    "name": "Salade",
+    "price": 3.99,
+    "description": "Un mélange de salades fraîches et croquantes, idéal pour préparer des salades saines et délicieuses pour vos repas."
+  },
+  {
+    "name": "Tomates",
+    "price": 2.49,
+    "description": "Des tomates rouges et juteuses, parfaites pour ajouter de la saveur et de la texture à vos plats préférés, des sandwichs aux pâtes."
+  },
+  {
+    "name": "Viande",
+    "price": 15.99,
+    "description": "De la viande fraîche et de qualité, provenant des meilleurs producteurs locaux, pour des plats copieux et savoureux."
+  },
+  {
+    "name": "Lait",
+    "price": 8.49,
+    "description": "Du lait frais et crémeux, parfait pour le petit déjeuner ou pour ajouter une touche de douceur à vos recettes préférées."
+  },
+  {
+    "name": "Oeuf",
+    "price": 5.49,
+    "description": "Des oeufs frais et riches en protéines, idéaux pour les petits déjeuners, les omelettes ou pour ajouter de la texture à vos plats préférés."
+  },
+  {
+    "name": "Poisson",
+    "price": 14.99,
+    "description": "Du poisson frais et savoureux, provenant de sources durables et pêché localement, pour des repas sains et délicieux."
+  },
+  {
+    "name": "Céréales",
+    "price": 3.99,
+    "description": "Des céréales savoureuses et croquantes, parfaites pour un petit déjeuner rapide ou pour ajouter de la texture à vos yaourts et smoothies."
+  }
+]'; 
     $response->getBody()->write($flux);
 
     return addHeaders($response);

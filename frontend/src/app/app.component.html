@@ -24,11 +24,11 @@
   <div *ngIf="produit.length>0"> 
     <ul class="list-group scrollbar-primary">
       <li class="list-group-item" *ngFor="let prod of produit"  style="cursor: pointer;">
-        <span>Titre : {{prod.titre}}</span>
+        <span>Nom : {{prod.name}}</span>
         <br>
-        <span>Prix : {{prod.prix}}€</span>
+        <span>Prix : {{prod.price}}€</span>
         <br>
-        <span>Référence : {{prod.ref}}</span>     
+        <span>Référence : {{prod.description}}</span>     
       </li>
     </ul>
   </div>
