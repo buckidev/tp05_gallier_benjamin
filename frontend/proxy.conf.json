@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://cnam-tp05-gallier-benjamin.onrender.com/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

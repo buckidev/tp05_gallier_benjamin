@@ -1,1 +1,0 @@
-# tp05_gallier_benjamin

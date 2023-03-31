@@ -1,0 +1,37 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<div>
+  <button style="margin:2%" class="btn btn-primary" (click)="login()">test login</button>
+  <button style="margin:2%" class="btn btn-primary" (click)="hello()">test hello</button>
+  <button style="margin:2%" class="btn btn-primary" (click)="users()">test users</button>
+  <button style="margin:2%" class="btn btn-primary" (click)="catalogue()">test catalogue</button>
+</div>
+<div>
+  <div style="display: flex;"> 
+    <p *ngIf="userLog.nom" style="margin-right: 10px;">nom: {{userLog.nom}}</p>
+    <p *ngIf="userLog.prenom">prenom: {{userLog.prenom}}</p>
+  </div>
+  <div style="display: flex;"> 
+    <p *ngIf="helloMsg" style="margin-right: 10px;">Hello {{helloMsg}}</p>
+  </div>
+  <div style="display: flex;"> 
+    <p *ngIf="user.nom" style="margin-right: 10px;">nom: {{user.nom}}</p>
+    <p *ngIf="user.prenom" style="margin-right: 10px;">prenom: {{user.prenom}}</p>
+    <p *ngIf="user.adresse" style="margin-right: 10px;">adresse: {{user.adresse}}</p>
+    <p *ngIf="user.tel" style="margin-right: 10px;">telephone: {{user.tel}}</p>
+  </div>
+  <div *ngIf="produit.length>0"> 
+    <ul class="list-group scrollbar-primary">
+      <li class="list-group-item" *ngFor="let prod of produit"  style="cursor: pointer;">
+        <span>Titre : {{prod.titre}}</span>
+        <br>
+        <span>Prix : {{prod.prix}}€</span>
+        <br>
+        <span>Référence : {{prod.ref}}</span>     
+      </li>
+    </ul>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
